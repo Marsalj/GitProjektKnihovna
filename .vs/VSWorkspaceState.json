@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ProjektKnihovna",
+    "\\ProjektKnihovna\\ProjektKnihovna"
   ],
-  "SelectedNode": "\\C:\\Users\\Jirka\\Source\\Repos\\GitProjektKnihovna",
+  "SelectedNode": "\\ProjektKnihovna\\ProjektKnihovna\\MainWindow.xaml",
   "PreviewInSolutionExplorer": false
 }
