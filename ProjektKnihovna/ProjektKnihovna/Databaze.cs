@@ -26,6 +26,11 @@ namespace ProjektKnihovna
             PrihlasenyUzivatel.Koupene.Add(K);
         }
 
+        public static void Odstranit(Kniha K)
+        {
+            PrihlasenyUzivatel.Koupene.Remove(K);
+        }
+
         public static void Serializuj()
         {
             XmlSerializer serializer1 = new XmlSerializer(typeof(List<Uzivatel>));
@@ -55,6 +60,5 @@ namespace ProjektKnihovna
                 Nabidka = (List<Kniha>)deserializer2.Deserialize(stream);
             }
         }
-
     }
 }

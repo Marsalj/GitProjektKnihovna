@@ -7,12 +7,6 @@
     <Penezenka>0</Penezenka>
     <Koupene>
       <Kniha xsi:type="Ekniha">
-        <Nazev>Pan prstenu</Nazev>
-        <Cena>500</Cena>
-        <Typ>Ekniha</Typ>
-        <PocetStran>486</PocetStran>
-      </Kniha>
-      <Kniha xsi:type="Ekniha">
         <Nazev>Volani cthulhu</Nazev>
         <Cena>666</Cena>
         <Typ>Ekniha</Typ>

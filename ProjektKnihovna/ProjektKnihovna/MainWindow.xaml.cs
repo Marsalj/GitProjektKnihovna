@@ -31,7 +31,7 @@ namespace ProjektKnihovna
                     Databaze.PrihlasenyUzivatel = U;
                 }
             }
-            PrihlasenyUzivatel.Content = Databaze.PrihlasenyUzivatel.Jmeno;
+            PrihlasenyUzivatel.Content = "Přihlášený uživatel: "+Databaze.PrihlasenyUzivatel.Jmeno;
 
             TabulkaNabidka.ItemsSource = Databaze.Nabidka;
             TabulkaZakoupene.ItemsSource = Databaze.PrihlasenyUzivatel.Koupene;
@@ -70,6 +70,15 @@ namespace ProjektKnihovna
                 this.WindowState = WindowState.Normal;
                 this.Height = 480;
                 this.Width = 852;
+
+                TabulkaNabidka.Height = 200;
+                TabulkaZakoupene.Height = 200;
+                TabulkaNabidka.Width = 400;
+                TabulkaZakoupene.Width = 400;
+
+                ButtonAdd.Width = 400;
+                ButtonDelete.Width = 400;
+
                 ButtonResizeSmall.IsEnabled = false;
                 ButtonResizeSmall.Visibility = Visibility.Hidden;
                 ButtonResizeBig.IsEnabled = true;
@@ -89,6 +98,15 @@ namespace ProjektKnihovna
                 this.WindowState = WindowState.Maximized;
                 this.Height = 1080;
                 this.Width = 1920;
+
+                TabulkaNabidka.Height = 450;
+                TabulkaZakoupene.Height = 450;
+                TabulkaNabidka.Width = 700;
+                TabulkaZakoupene.Width = 700;
+
+                ButtonAdd.Width = 700;
+                ButtonDelete.Width = 700;
+
                 ButtonResizeSmall.IsEnabled = true;
                 ButtonResizeSmall.Visibility = Visibility.Visible;
                 ButtonResizeBig.IsEnabled = false;
@@ -121,6 +139,15 @@ namespace ProjektKnihovna
             {
                 var K = TabulkaNabidka.SelectedItem as Kniha;
                 Databaze.Koupit(K);
+            }
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (TabulkaZakoupene.SelectedItem != null)
+            {
+                var K = TabulkaZakoupene.SelectedItem as Kniha;
+                Databaze.Odstranit(K);
             }
         }
     }

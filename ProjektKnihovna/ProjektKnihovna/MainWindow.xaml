@@ -15,7 +15,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -66,30 +65,97 @@
 
         <DataGrid Name="TabulkaNabidka"
                   Grid.Row="1"
-                  IsReadOnly="True"/>
+                  IsReadOnly="True"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Width="700"
+                  Height="450"
+                  AutoGenerateColumns="False"
+                  Margin="0,32,0,0"
+                  ItemsSource="{Binding SourceCollection}">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Název" Binding="{Binding Nazev}" Width="180"/>
+                <DataGridTextColumn Header="Cena" Binding="{Binding Cena}" Width="100"/>
+                <DataGridTextColumn Header="Typ" Binding="{Binding Typ}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <DataGrid Name="TabulkaZakoupene"
                   Grid.Column="1" 
                   Grid.Row="1" 
-                  IsReadOnly="True"/>
+                  IsReadOnly="True"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Width="700"
+                  Height="450"
+                  AutoGenerateColumns="False"
+                  Margin="0,32,0,0"
+                  ItemsSource="{Binding SourceCollection}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Název" Binding="{Binding Nazev}" Width="180"/>
+                <DataGridTextColumn Header="Cena" Binding="{Binding Cena}" Width="100"/>
+                <DataGridTextColumn Header="Typ" Binding="{Binding Typ}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Button Name="ButtonAdd"
-                Grid.Column="2"
                 Content="Kup" 
-                HorizontalAlignment="Left" 
-                Margin="229,361,0,0" 
+                HorizontalAlignment="Center" 
                 Grid.Row="1" 
-                VerticalAlignment="Top"
-                FontSize="64" Click="ButtonAdd_Click"/>
+                Margin="0,0,0,100"
+                VerticalAlignment="Bottom"
+                FontSize="16"
+                Width="700"
+                Height="32"
+                Click="ButtonAdd_Click"/>
         
+        <Button Name="ButtonDelete"
+                Content="Odstraň z knihovny" 
+                HorizontalAlignment="Center" 
+                Grid.Row="1" 
+                Grid.Column="1"
+                Margin="0,0,0,100"
+                VerticalAlignment="Bottom"
+                FontSize="16"
+                Width="700"
+                Height="32" Click="ButtonDelete_Click"/>
+
         <Label Name="PrihlasenyUzivatel"
                Content="Zde"
-               Grid.Column="2"
+               Grid.Column="1"
                HorizontalAlignment="Left"
-               Margin="229,146,0,0"
+               Margin="100,0,0,50"
                Grid.Row="1" 
-               VerticalAlignment="Top"
-               FontSize="32"/>
+               VerticalAlignment="Bottom"
+               FontSize="16"/>
 
+        <Button Name="Odhlaseni"
+               Content="Odhlásit"
+               Grid.Column="1"
+               HorizontalAlignment="Right"
+               Margin="0,0,100,50"
+               Width="80"
+               Height="32"
+               Grid.Row="1" 
+               VerticalAlignment="Bottom"
+               FontSize="16"/>
+
+        <Label
+               Content="Nabídka knih"
+               Grid.Column="0"
+               Grid.Row="1"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               FontSize="16"/>
+
+        <Label
+               Content="Zakoupené knihy"
+               Grid.Column="1"
+               Grid.Row="1"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               FontSize="16"/>
     </Grid>
 </Window>
