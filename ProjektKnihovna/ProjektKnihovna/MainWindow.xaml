@@ -141,7 +141,7 @@
                IsEnabled="False"
                Visibility="Hidden"/>
 
-        <Button Name="Odhlaseni"
+        <Button Name="ButtonOdhlaseni"
                Content="Odhlásit"
                Grid.Column="1"
                HorizontalAlignment="Right"
@@ -183,7 +183,7 @@
                 FontSize="16"
                 Width="100"
                 Height="32"
-                Margin="20,100,0,0"/>
+                Margin="20,100,0,0" Click="ButtonLogin_Click"/>
 
         <Button Name="ButtonRegister"
                 Content="Registrovat"
@@ -194,7 +194,7 @@
                 FontSize="16"
                 Width="100"
                 Height="32"
-                Margin="0,100,20,0"/>
+                Margin="0,100,20,0" Click="ButtonRegister_Click"/>
 
         <TextBox Name="TextJmeno"
                  Grid.Column="1" 
@@ -263,12 +263,24 @@
                FontStyle="Italic"
                Margin="0,0,20,300"/>
 
-        <Label Name="LabelError"
+        <Label Name="LabelError1"
                Grid.Row="1"
                Grid.Column="1"
                VerticalAlignment="Center"
                HorizontalAlignment="Left"
-               Content="Error"
+               Content="Jméno nebo E-mail jsou již použity"
+               FontSize="16"
+               Foreground="Red"
+               Visibility="Hidden"
+               IsEnabled="False"
+               Margin="20,200,0,0"/>
+
+        <Label Name="LabelError2"
+               Grid.Row="1"
+               Grid.Column="1"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Content="Přihlašovací údaje jsou zadáný špatně"
                FontSize="16"
                Foreground="Red"
                Visibility="Hidden"

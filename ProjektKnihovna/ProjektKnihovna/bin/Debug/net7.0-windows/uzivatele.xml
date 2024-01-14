@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfUzivatel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Uzivatel>
-    <Jmeno>Pepa</Jmeno>
-    <Email>pepazdepa@gmail.com</Email>
-    <Heslo>Start123</Heslo>
-    <Penezenka>0</Penezenka>
+    <Jmeno>Admin</Jmeno>
+    <Email>Admin</Email>
+    <Heslo>Admin</Heslo>
     <Koupene>
+      <Kniha xsi:type="Audiokniha">
+        <Nazev>Pán Prstenů</Nazev>
+        <Cena>500</Cena>
+        <Typ>Audiokniha</Typ>
+        <Namluvil>Petr Macháček</Namluvil>
+      </Kniha>
       <Kniha xsi:type="Ekniha">
-        <Nazev>Volani cthulhu</Nazev>
-        <Cena>666</Cena>
+        <Nazev>Volání Cthulhu</Nazev>
+        <Cena>300</Cena>
         <Typ>Ekniha</Typ>
-        <PocetStran>333</PocetStran>
+        <PocetStran>666</PocetStran>
       </Kniha>
     </Koupene>
   </Uzivatel>

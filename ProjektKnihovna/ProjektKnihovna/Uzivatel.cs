@@ -13,7 +13,6 @@ namespace ProjektKnihovna
         public string Jmeno {  get; set; }
         public string Email { get; set; }
         public string Heslo { get; set; }
-        public decimal Penezenka { get; set; }
         public BindingList<Kniha> Koupene { get; set; } = new BindingList<Kniha>();
 
         public Uzivatel() { }
@@ -22,7 +21,6 @@ namespace ProjektKnihovna
             Jmeno = jmeno;
             Email = email;
             Heslo = heslo;
-            Penezenka = 0;
         }
     }
 }
