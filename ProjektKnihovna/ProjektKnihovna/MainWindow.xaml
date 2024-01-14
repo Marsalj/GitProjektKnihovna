@@ -152,7 +152,7 @@
                VerticalAlignment="Bottom"
                FontSize="16"
                IsEnabled="False"
-               Visibility="Hidden"/>
+               Visibility="Hidden" Click="ButtonOdhlaseni_Click"/>
 
         <Label Name="LabelNabidka"
                Content="Nabídka knih"
@@ -283,6 +283,18 @@
                Content="Přihlašovací údaje jsou zadáný špatně"
                FontSize="16"
                Foreground="Red"
+               Visibility="Hidden"
+               IsEnabled="False"
+               Margin="20,200,0,0"/>
+
+        <Label Name="LabelRegistrovano"
+               Grid.Row="1"
+               Grid.Column="1"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Content="Uživatel úspěšně registrován"
+               FontSize="16"
+               Foreground="LimeGreen"
                Visibility="Hidden"
                IsEnabled="False"
                Margin="20,200,0,0"/>

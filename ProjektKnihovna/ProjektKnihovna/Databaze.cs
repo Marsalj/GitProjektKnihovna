@@ -40,7 +40,7 @@ namespace ProjektKnihovna
             }
 
             XmlSerializer serializer2 = new XmlSerializer(typeof(List<Kniha>));
-            using (FileStream stream = new FileStream("nabidka.xml", FileMode.Open))
+            using (FileStream stream = new FileStream("nabidka.xml", FileMode.Create))
             {
                 serializer2.Serialize(stream, Nabidka);
             }

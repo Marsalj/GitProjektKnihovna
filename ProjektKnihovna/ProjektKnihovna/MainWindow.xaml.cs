@@ -170,7 +170,7 @@ namespace ProjektKnihovna
                     {
                         spatneUdaje = false;
                         index = Databaze.Uzivatele.IndexOf(U);
-
+                        break;
                     }
                     else
                     {
@@ -186,6 +186,8 @@ namespace ProjektKnihovna
                     TabulkaNabidka.ItemsSource = Databaze.Nabidka;
                     TabulkaZakoupene.ItemsSource = Databaze.PrihlasenyUzivatel.Koupene;
 
+                    LabelRegistrovano.Visibility = Visibility.Hidden;
+                    LabelRegistrovano.IsEnabled = false;
                     LabelError1.Visibility = Visibility.Hidden;
                     LabelError1.IsEnabled = false;
                     LabelError2.Visibility = Visibility.Hidden;
@@ -229,6 +231,8 @@ namespace ProjektKnihovna
                 }
                 else
                 {
+                    LabelRegistrovano.Visibility = Visibility.Hidden;
+                    LabelRegistrovano.IsEnabled = false;
                     LabelError1.Visibility = Visibility.Hidden;
                     LabelError1.IsEnabled = false;
                     LabelError2.Visibility = Visibility.Visible;
@@ -255,6 +259,7 @@ namespace ProjektKnihovna
                     if (email == U.Email || jmeno == U.Jmeno)
                     {
                         uzExistuje = true;
+                        break;
                     }
                     else
                     {
@@ -266,9 +271,18 @@ namespace ProjektKnihovna
                 {
                     Uzivatel novyUzivatel = new Uzivatel(jmeno, email, heslo);
                     Databaze.Uzivatele.Add(novyUzivatel);
+
+                    LabelError2.Visibility = Visibility.Hidden;
+                    LabelError2.IsEnabled = false;
+                    LabelError1.Visibility = Visibility.Hidden;
+                    LabelError1.IsEnabled = false;
+                    LabelRegistrovano.Visibility = Visibility.Visible;
+                    LabelRegistrovano.IsEnabled = true;
                 }
                 else
                 {
+                    LabelRegistrovano.Visibility = Visibility.Hidden;
+                    LabelRegistrovano.IsEnabled = false;
                     LabelError2.Visibility = Visibility.Hidden;
                     LabelError2.IsEnabled = false;
                     LabelError1.Visibility = Visibility.Visible;
@@ -278,6 +292,55 @@ namespace ProjektKnihovna
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ButtonOdhlaseni_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                LabelJmeno.Visibility = Visibility.Visible;
+                LabelJmeno.IsEnabled = true;
+                LabelEmail.Visibility = Visibility.Visible;
+                LabelEmail.IsEnabled = true;
+                LabelHeslo.Visibility = Visibility.Visible;
+                LabelHeslo.IsEnabled = true;
+                TextJmeno.Visibility = Visibility.Visible;
+                TextJmeno.IsEnabled = true;
+                TextEmail.Visibility = Visibility.Visible;
+                TextEmail.IsEnabled = true;
+                TextHeslo.Visibility = Visibility.Visible;
+                TextHeslo.IsEnabled = true;
+                LabelNazev.Visibility = Visibility.Visible;
+                LabelNazev.IsEnabled = true;
+                ButtonLogin.Visibility = Visibility.Visible;
+                ButtonLogin.IsEnabled = true;
+                ButtonRegister.Visibility = Visibility.Visible;
+                ButtonRegister.IsEnabled = true;
+
+
+                TabulkaNabidka.Visibility = Visibility.Hidden;
+                TabulkaNabidka.IsEnabled = false;
+                TabulkaZakoupene.Visibility = Visibility.Hidden;
+                TabulkaZakoupene.IsEnabled = false;
+                LabelNabidka.Visibility = Visibility.Hidden;
+                LabelNabidka.IsEnabled = false;
+                LabelZakoupeno.Visibility = Visibility.Hidden;
+                LabelZakoupeno.IsEnabled = false;
+                PrihlasenyUzivatel.Visibility = Visibility.Hidden;
+                PrihlasenyUzivatel.IsEnabled = false;
+                ButtonAdd.Visibility = Visibility.Hidden;
+                ButtonAdd.IsEnabled = false;
+                ButtonDelete.Visibility = Visibility.Hidden;
+                ButtonDelete.IsEnabled = false;
+                ButtonOdhlaseni.Visibility = Visibility.Hidden;
+                ButtonOdhlaseni.IsEnabled = false;
+
+                Databaze.PrihlasenyUzivatel = null;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

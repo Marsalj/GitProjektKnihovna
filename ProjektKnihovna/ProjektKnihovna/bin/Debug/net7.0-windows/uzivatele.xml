@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfUzivatel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Uzivatel>
+    <Jmeno />
+    <Email />
+    <Heslo />
+    <Koupene />
+  </Uzivatel>
+  <Uzivatel>
     <Jmeno>Admin</Jmeno>
     <Email>Admin</Email>
     <Heslo>Admin</Heslo>
     <Koupene>
-      <Kniha xsi:type="Audiokniha">
+      <Kniha xsi:type="Ekniha">
         <Nazev>Pán Prstenů</Nazev>
         <Cena>500</Cena>
-        <Typ>Audiokniha</Typ>
-        <Namluvil>Petr Macháček</Namluvil>
+        <Typ>Ekniha</Typ>
+        <PocetStran>458</PocetStran>
       </Kniha>
       <Kniha xsi:type="Ekniha">
-        <Nazev>Volání Cthulhu</Nazev>
-        <Cena>300</Cena>
+        <Nazev>Pejsek a Kočička</Nazev>
+        <Cena>120</Cena>
         <Typ>Ekniha</Typ>
-        <PocetStran>666</PocetStran>
+        <PocetStran>50</PocetStran>
       </Kniha>
     </Koupene>
   </Uzivatel>
