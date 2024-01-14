@@ -9,13 +9,7 @@ namespace ProjektKnihovna
     [Serializable()]
     public class Ekniha : Kniha
     {
-        private int _pocetStran;
-        public int PocetStran
-        {
-            get { return _pocetStran; }
-            set { _pocetStran = value; }
-        }
-
+        public int PocetStran {  get; set; }
         public Ekniha() { }
         public Ekniha(string nazev, decimal cena, int pocetStran) : base(nazev, cena)
         {

@@ -27,12 +27,7 @@ namespace ProjektKnihovna
 
         public MainWindow()
         {
-            InitializeComponent();
-
-            Databaze.Nabidka.Add(kniha1);
-            Databaze.Nabidka.Add(kniha2);
-            Databaze.Nabidka.Add(kniha3);
-            Databaze.Nabidka.Add(kniha4);
+            InitializeComponent();     
 
             TabulkaNabidka.ItemsSource = Databaze.Nabidka;
 
@@ -49,7 +44,7 @@ namespace ProjektKnihovna
             //zavře aplikaci a ulozi do xml souboru
             try
             {
-                Databaze.Serializuj();
+                Databaze.Serializuj("uzivatele.xml", "nabidka.xml");
                 this.Close();
 
             } catch (Exception ex)

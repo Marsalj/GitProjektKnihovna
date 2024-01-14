@@ -7,29 +7,13 @@ using System.Xml.Serialization;
 
 namespace ProjektKnihovna
 {
+    [Serializable()]
+    [XmlInclude(typeof(Audiokniha)), XmlInclude(typeof(Ekniha))]
     public abstract class Kniha
     {
-        private string _nazev;
-        private decimal _cena;
-        private string _typ;
-        public string Nazev
-        {
-            get { return _nazev; }
-            set { _nazev = value; }
-        }
-
-        public decimal Cena
-        {
-            get { return _cena; }
-            set { _cena = value; }
-        }
-
-        public string Typ
-        {
-            get { return _typ; }
-            set { _typ = value; }
-        }
-
+        public string Nazev {  get; set; }
+        public decimal Cena { get; set; }
+        public string Typ { get; set; } = "";
         public Kniha() { }
         public Kniha (string nazev, decimal cena)
         {

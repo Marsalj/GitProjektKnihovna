@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKniha xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Kniha xsi:type="Ekniha">
+    <Nazev>Pan prstenu</Nazev>
+    <Cena>500</Cena>
+    <Typ>Ekniha</Typ>
+    <PocetStran>486</PocetStran>
+  </Kniha>
+  <Kniha xsi:type="Audiokniha">
+    <Nazev>Pan prstenu</Nazev>
+    <Cena>600</Cena>
+    <Typ>Audiokniha</Typ>
+    <Namluvil>Petr</Namluvil>
+  </Kniha>
+  <Kniha xsi:type="Ekniha">
+    <Nazev>Volani cthulhu</Nazev>
+    <Cena>666</Cena>
+    <Typ>Ekniha</Typ>
+    <PocetStran>333</PocetStran>
+  </Kniha>
+  <Kniha xsi:type="Ekniha">
+    <Nazev>451 stupnu Fahrenheita</Nazev>
+    <Cena>400</Cena>
+    <Typ>Ekniha</Typ>
+    <PocetStran>300</PocetStran>
+  </Kniha>
+</ArrayOfKniha>

@@ -26,22 +26,18 @@ namespace ProjektKnihovna
             PrihlasenyUzivatel.Koupene.Add(K);
         }
 
-        public static void Serializuj(string jmenoSouboru)
+        public static void Serializuj(string jmenoSouboru1, string jmenoSouboru2)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Uzivatel>));
-            using (TextWriter writer  = new StringWriter(jmenoSouboru))
+            XmlSerializer serializer1 = new XmlSerializer(typeof(List<Uzivatel>));
+            using (TextWriter writer = new StreamWriter(@jmenoSouboru1))
             {
-                serializer.Serialize(writer, Uzivatele);
+                serializer1.Serialize(writer, Uzivatele);
             }
-        }
 
-        public static BindingList<T> Deserializuj<T>(string jmenoSouboru)
-        {
-            using (Stream stream = File.Open(jmenoSouboru, FileMode.Open))
+            XmlSerializer serializer2 = new XmlSerializer(typeof(List<Kniha>));
+            using (TextWriter writer = new StreamWriter(@jmenoSouboru2))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(BindingList<T>));
-                return serializer.Deserialize(stream) as BindingList<T>;
-                stream.Close();
+                serializer2.Serialize(writer, Nabidka);
             }
         }
 

@@ -10,13 +10,7 @@ namespace ProjektKnihovna
     public class Audiokniha : Kniha
     {
 
-        private string _namluvil;
-        public string Namluvil
-        {
-            get { return _namluvil; }
-            set { _namluvil = value; }
-        }
-
+        public string Namluvil {  get; set; }
         public Audiokniha() { }
         public Audiokniha(string nazev, decimal cena, string namluvil) : base(nazev, cena)
         {

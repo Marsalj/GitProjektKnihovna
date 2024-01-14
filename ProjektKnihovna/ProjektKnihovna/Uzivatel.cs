@@ -10,34 +10,10 @@ namespace ProjektKnihovna
     [Serializable()]
     public class Uzivatel
     {
-        private string _jmeno;
-        private string _email;
-        private string _heslo;
-        private decimal _penezenka;
-
-        public string Jmeno
-        {
-            get { return _jmeno; }
-            set { _jmeno = value; }
-        }
-
-        public string Email
-        {
-            get { return _email; }
-            set { _email = value; }
-        }
-
-        public string Heslo
-        {
-            get { return _heslo; }
-            set { _heslo = value; }
-        }
-
-        public decimal Penezenka
-        {
-            get { return _penezenka; }
-            set { _penezenka += value;}
-        }
+        public string Jmeno {  get; set; }
+        public string Email { get; set; }
+        public string Heslo { get; set; }
+        public decimal Penezenka { get; set; }
         public BindingList<Kniha> Koupene { get; set; } = new BindingList<Kniha>();
 
         public Uzivatel() { }
