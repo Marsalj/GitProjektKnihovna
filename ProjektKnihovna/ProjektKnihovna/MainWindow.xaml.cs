@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,21 +13,43 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 
 namespace ProjektKnihovna
 {
     public partial class MainWindow : Window
     {
+        Uzivatel Pepa = new Uzivatel("Pepa", "pepazdepa@gmail.com", "Start123");
+        Ekniha kniha1 = new Ekniha("Pan prstenu", 500, 486);
+        Audiokniha kniha2 = new Audiokniha("Pan prstenu", 600, "Petr");
+        Ekniha kniha3 = new Ekniha("Volani cthulhu", 666, 333);
+        Ekniha kniha4 = new Ekniha("451 stupnu Fahrenheita", 400, 300);
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Databaze.Nabidka.Add(kniha1);
+            Databaze.Nabidka.Add(kniha2);
+            Databaze.Nabidka.Add(kniha3);
+            Databaze.Nabidka.Add(kniha4);
+
+            TabulkaNabidka.ItemsSource = Databaze.Nabidka;
+
+            Databaze.Uzivatele.Add(Pepa);
+            Databaze.PrihlasenyUzivatel = Pepa;
+
+            PrihlasenyUzivatel.Content = Databaze.PrihlasenyUzivatel.Jmeno;
+
+            TabulkaZakoupene.ItemsSource = Databaze.PrihlasenyUzivatel.Koupene;
         }
 
-        private void ExitApp(object sender, RoutedEventArgs e)
+        private void ZavriAplikaci(object sender, RoutedEventArgs e)
         {
-            //zavře aplikaci
+            //zavře aplikaci a ulozi do xml souboru
             try
             {
+                Databaze.Serializuj();
                 this.Close();
 
             } catch (Exception ex)
@@ -34,7 +57,7 @@ namespace ProjektKnihovna
                 MessageBox.Show(ex.Message);
             }
         }
-        private void MinimizeApp(object sender, RoutedEventArgs e)
+        private void MinimalizujAplikaci(object sender, RoutedEventArgs e)
         {
             //minimalizuje aplikaci
             try
@@ -46,7 +69,7 @@ namespace ProjektKnihovna
                 MessageBox.Show(ex.Message);
             }
         }
-        private void ResizeSmallApp(object sender, RoutedEventArgs e)
+        private void ZmensiAplikaci(object sender, RoutedEventArgs e)
         {
             //Zmenší aplikaci
             try
@@ -65,7 +88,7 @@ namespace ProjektKnihovna
             }
         }
 
-        private void ResizeBigApp(object sender, RoutedEventArgs e)
+        private void ZvetsiAplikaci(object sender, RoutedEventArgs e)
         {
             //Zvětší aplikaci
             try
@@ -86,12 +109,25 @@ namespace ProjektKnihovna
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //Toto umožňuje pohyb ve zmešení aplikace
             try
             {
-                this.DragMove();
+                if (this.WindowState == WindowState.Normal)
+                {
+                    this.DragMove();
+                }
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (TabulkaNabidka.SelectedItem != null)
+            {
+                var K = TabulkaNabidka.SelectedItem as Kniha;
+                Databaze.Koupit(K);
             }
         }
     }

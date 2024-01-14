@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektKnihovna"
         mc:Ignorable="d"
-        Title="Knihovna" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="Knihovna"
+        Height="1080" Width="1920" 
+        WindowStyle="None" WindowState="Maximized" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" 
+        MaxHeight="1080" MaxWidth="1920" 
+        MinHeight="480" MinWidth="852">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -14,13 +19,76 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Button Name="ButtonExit" Grid.Column="2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="32" Width="64" FontSize="16" Click="ExitApp"/>
-        <Button Name="ButtonResizeSmall" Grid.Column="2" Content="◱" HorizontalAlignment="Right" VerticalAlignment="Top" Height="32" Width="64" FontSize="16" Click="ResizeSmallApp" Margin="0,0,64,0"/>
-        <Button Name="ButtonMinimize"  Grid.Column="2" Content="-" HorizontalAlignment="Right" VerticalAlignment="Top" Height="32" Width="64" FontSize="16" Click="MinimizeApp" Margin="0,0,128,0"/>
-        <Button Name="ButtonResizeBig" IsEnabled="False" Visibility="Hidden" Grid.Column="2" Content="⬜" HorizontalAlignment="Right" VerticalAlignment="Top" Height="32" Width="64" FontSize="16" Click="ResizeBigApp" Margin="0,0,64,0"/>
+
+        <Button Name="ButtonExit" 
+                Content="X" 
+                Grid.Column="2"  
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top"
+                Height="32" Width="64" 
+                FontSize="16"
+                Click="ZavriAplikaci"/>
+
+        <Button Name="ButtonResizeSmall" 
+                Content="◱"
+                Grid.Column="2"
+                Margin="0,0,64,0"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Height="32" Width="64"
+                FontSize="16" 
+                Click="ZmensiAplikaci"/>
+
+        <Button Name="ButtonMinimize" 
+                Content="-"
+                Grid.Column="2" 
+                Margin="0,0,128,0"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top"
+                Height="32" Width="64" 
+                FontSize="16"
+                Click="MinimalizujAplikaci"/>
+
+        <Button Name="ButtonResizeBig" 
+                IsEnabled="False" 
+                Visibility="Hidden" 
+                Grid.Column="2" 
+                Content="⬜" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Height="32" Width="64" 
+                FontSize="16" 
+                Click="ZvetsiAplikaci" 
+                Margin="0,0,64,0"/>
+
+        <DataGrid Name="TabulkaNabidka"
+                  Grid.Row="1"/>
+
+        <DataGrid Name="TabulkaZakoupene"
+                  Grid.Column="1" 
+                  Grid.Row="1" 
+                  />
+
+        <Button Name="ButtonAdd"
+                Grid.Column="2"
+                Content="Kup" 
+                HorizontalAlignment="Left" 
+                Margin="229,361,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top"
+                FontSize="64" Click="ButtonAdd_Click"/>
+        
+        <Label Name="PrihlasenyUzivatel"
+               Content="Zde"
+               Grid.Column="2"
+               HorizontalAlignment="Left"
+               Margin="229,146,0,0"
+               Grid.Row="1" 
+               VerticalAlignment="Top"
+               FontSize="32"/>
 
     </Grid>
 </Window>
