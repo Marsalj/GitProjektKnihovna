@@ -65,12 +65,13 @@
                 Margin="0,0,64,0"/>
 
         <DataGrid Name="TabulkaNabidka"
-                  Grid.Row="1"/>
+                  Grid.Row="1"
+                  IsReadOnly="True"/>
 
         <DataGrid Name="TabulkaZakoupene"
                   Grid.Column="1" 
                   Grid.Row="1" 
-                  />
+                  IsReadOnly="True"/>
 
         <Button Name="ButtonAdd"
                 Grid.Column="2"

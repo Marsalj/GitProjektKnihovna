@@ -19,23 +19,21 @@ namespace ProjektKnihovna
 {
     public partial class MainWindow : Window
     {
-        Uzivatel Pepa = new Uzivatel("Pepa", "pepazdepa@gmail.com", "Start123");
-        Ekniha kniha1 = new Ekniha("Pan prstenu", 500, 486);
-        Audiokniha kniha2 = new Audiokniha("Pan prstenu", 600, "Petr");
-        Ekniha kniha3 = new Ekniha("Volani cthulhu", 666, 333);
-        Ekniha kniha4 = new Ekniha("451 stupnu Fahrenheita", 400, 300);
-
         public MainWindow()
         {
-            InitializeComponent();     
+            InitializeComponent();
+            Databaze.Deserializuj();
 
-            TabulkaNabidka.ItemsSource = Databaze.Nabidka;
-
-            Databaze.Uzivatele.Add(Pepa);
-            Databaze.PrihlasenyUzivatel = Pepa;
-
+            foreach (Uzivatel U in Databaze.Uzivatele)
+            {
+                if (U.Jmeno == "Pepa")
+                {
+                    Databaze.PrihlasenyUzivatel = U;
+                }
+            }
             PrihlasenyUzivatel.Content = Databaze.PrihlasenyUzivatel.Jmeno;
 
+            TabulkaNabidka.ItemsSource = Databaze.Nabidka;
             TabulkaZakoupene.ItemsSource = Databaze.PrihlasenyUzivatel.Koupene;
         }
 
@@ -44,7 +42,7 @@ namespace ProjektKnihovna
             //zavře aplikaci a ulozi do xml souboru
             try
             {
-                Databaze.Serializuj("uzivatele.xml", "nabidka.xml");
+                Databaze.Serializuj();
                 this.Close();
 
             } catch (Exception ex)

@@ -21,23 +21,38 @@ namespace ProjektKnihovna
             //Nabidka = Deserializuj<Kniha>("nabidka.xml");
         }
 
-        public static void Koupit( Kniha K)
+        public static void Koupit(Kniha K)
         {
             PrihlasenyUzivatel.Koupene.Add(K);
         }
 
-        public static void Serializuj(string jmenoSouboru1, string jmenoSouboru2)
+        public static void Serializuj()
         {
             XmlSerializer serializer1 = new XmlSerializer(typeof(List<Uzivatel>));
-            using (TextWriter writer = new StreamWriter(@jmenoSouboru1))
+            using (FileStream stream = new FileStream("uzivatele.xml", FileMode.Create))
             {
-                serializer1.Serialize(writer, Uzivatele);
+                serializer1.Serialize(stream, Uzivatele);
             }
 
             XmlSerializer serializer2 = new XmlSerializer(typeof(List<Kniha>));
-            using (TextWriter writer = new StreamWriter(@jmenoSouboru2))
+            using (FileStream stream = new FileStream("nabidka.xml", FileMode.Open))
             {
-                serializer2.Serialize(writer, Nabidka);
+                serializer2.Serialize(stream, Nabidka);
+            }
+        }
+
+        public static void Deserializuj()
+        {
+            XmlSerializer deserializer1 = new XmlSerializer(typeof (List<Uzivatel>));
+            using (FileStream stream = new FileStream("uzivatele.xml", FileMode.Open))
+            {
+                Uzivatele = (List<Uzivatel>)deserializer1.Deserialize(stream);
+            }
+
+            XmlSerializer deserializer2= new XmlSerializer(typeof(List<Kniha>));
+            using (FileStream stream = new FileStream("nabidka.xml", FileMode.Open))
+            {
+                Nabidka = (List<Kniha>)deserializer2.Deserialize(stream);
             }
         }
 
